@@ -35,9 +35,9 @@ t1 = time()
 pred = clf.predict(features_test)
 print "prediction time:", round(time()-t1,3), "s"
 
-print pred[10]
-print pred[26]
-print pred[50]
+import collections
+counter = collections.Counter(pred)
+print counter[1], counter[0]
 
 from sklearn.metrics import accuracy_score
 accuracy = accuracy_score(pred, labels_test)

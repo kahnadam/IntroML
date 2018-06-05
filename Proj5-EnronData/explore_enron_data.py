@@ -42,3 +42,9 @@ print enron_data["SKILLING JEFFREY K"].keys()
 
 #how much stock does James Prentice have?
 print enron_data["PRENTICE JAMES"]["total_stock_value"]
+
+#how many emails from this person to a POI?
+print enron_data["COLWELL WESLEY"]["from_this_person_to_poi"]
+
+#how many stock options exercised by this person?
+print enron_data["SKILLING JEFFREY K"]["exercised_stock_options"]

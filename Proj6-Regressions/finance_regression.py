@@ -21,7 +21,13 @@ dictionary = pickle.load( open("../final_project/final_project_dataset_modified.
 
 ### list the features you want to look at--first item in the 
 ### list will be the "target" feature
-features_list = ["bonus", "salary"]
+
+#regress on bonus and salary
+#features_list = ["bonus", "salary"]
+
+#regress on bonus and long term incentive
+features_list = ["bonus", "long_term_incentive"]
+
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True)
 target, features = targetFeatureSplit( data )
 
@@ -45,6 +51,12 @@ reg.fit(feature_train, target_train)
 # print regression coefficient and y-interept
 print "Reg. coefficient: ", reg.coef_
 print "Y-intercept: ", reg.intercept_
+
+#what if you tested on the same data that you trained?
+print "Score with training data: ", reg.score(feature_train, target_train)
+
+#test the score using the test data
+print "Score with test data: ", reg.score(feature_test, target_test)
 
 
 

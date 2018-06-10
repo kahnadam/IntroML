@@ -23,10 +23,10 @@ dictionary = pickle.load( open("../final_project/final_project_dataset_modified.
 ### list will be the "target" feature
 
 #regress on bonus and salary
-#features_list = ["bonus", "salary"]
+features_list = ["bonus", "salary"]
 
 #regress on bonus and long term incentive
-features_list = ["bonus", "long_term_incentive"]
+#features_list = ["bonus", "long_term_incentive"]
 
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True)
 target, features = targetFeatureSplit( data )
@@ -83,7 +83,13 @@ try:
     plt.plot( feature_test, reg.predict(feature_test) )
 except NameError:
     pass
+#make two regressions, one each for training and test data
+reg.fit(feature_test, target_test)
+plt.plot(feature_train, reg.predict(feature_train), color="b")
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
 plt.show()
+
+#print regression coefficient of the training data, which does not include the outlier in the testing data
+print "Reg. coefficient of training: ", reg.coef_

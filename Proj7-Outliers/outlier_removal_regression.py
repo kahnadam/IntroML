@@ -29,8 +29,8 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 from sklearn import linear_model
 reg = linear_model.LinearRegression()
 reg.fit(ages_train, net_worths_train)
-print "Slope: ", reg.coef_
-print "Score with test data: ", reg.score(ages_test, net_worths_test)
+print "Slope before cleaning: ", reg.coef_
+print "Score with test data before cleaning: ", reg.score(ages_test, net_worths_test)
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
@@ -78,3 +78,5 @@ if len(cleaned_data) > 0:
 else:
     print "outlierCleaner() is returning an empty list, no refitting to be done"
 
+print "Slope after cleaning: ", reg.coef_
+print "Score with test data after cleaning: ", reg.score(ages_test, net_worths_test)

@@ -90,7 +90,17 @@ for key, value in enron_data_wo_total.iteritems():
     if value['exercised_stock_options'] != 'NaN':
  
         stocks.append(value['exercised_stock_options']) 
+
+print "Min ESO: ", min(stocks)
+print "Max ESO: ", max(stocks)
+
+#min and max of salary
+salary = [] 
+for key, value in enron_data_wo_total.iteritems():
+        
+    if value['salary'] != 'NaN':
  
+        salary.append(value['salary']) 
  
-print "Min: ", min(stocks)
-print "Max: ", max(stocks)
+print "Min salary: ", min(salary)
+print "Max salary: ", max(salary)

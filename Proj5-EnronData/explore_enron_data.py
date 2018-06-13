@@ -80,3 +80,17 @@ print float(missing_tot_pay) / float(len(enron_data))
 poi_missing_tot_pay = len(dict((key, value) for key, value in enron_data.items() if value["total_payments"] == "NaN" and value["poi"] == 1))
 print poi_missing_tot_pay
 print float(poi_missing_tot_pay) / float(count_POI)
+
+#min and max of exercised stock options
+enron_data_wo_total = enron_data.copy()
+enron_data_wo_total.pop("TOTAL",0)
+stocks = [] 
+for key, value in enron_data_wo_total.iteritems():
+        
+    if value['exercised_stock_options'] != 'NaN':
+ 
+        stocks.append(value['exercised_stock_options']) 
+ 
+ 
+print "Min: ", min(stocks)
+print "Max: ", max(stocks)
